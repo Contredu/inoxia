@@ -1,0 +1,24 @@
+# Dependencias (se instalan con npm install, no se guardan)
+node_modules/
+
+# Variables de entorno (NUNCA subir contraseñas a GitHub)
+.env
+.env.local
+.env.production
+
+# Archivos de compilación
+dist/
+.next/
+build/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Docker
+postgres_data/
+redis_data/
