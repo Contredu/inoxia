@@ -1,0 +1,33 @@
+version: "3.9"
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: inoxia_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: inoxia_db
+      POSTGRES_USER: inoxia
+      POSTGRES_PASSWORD: changeme123
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U inoxia -d inoxia_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: inoxia_redis
+    restart: unless-stopped
+    command: redis-server --requirepass changeme123
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+  volumes:
+    postgres_data:
+    redis_data:
