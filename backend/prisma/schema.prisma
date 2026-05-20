@@ -3,6 +3,8 @@
 
 // Get a free hosted Postgres database in seconds: `npx create-db`
 
+//-------------------------------------------------------------------------------------------------------------------------
+// Provider de la Base de datos. generado automaticamente
 generator client {
   provider = "prisma-client"
   output   = "../src/generated/prisma"
@@ -10,4 +12,137 @@ generator client {
 
 datasource db {
   provider = "postgresql"
+}
+
+//-------------------------------------------------------------------------------------------------------------------------
+//ENUM
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum Category {
+  PULSERAS
+  COLLARES
+  PENDIENTES
+  ANILLOS
+  TOBILLERAS
+  CONJUNTOS
+  OTROS
+}
+
+enum Method {
+  CRYPTOCURRENCY
+  CREDIT_CARD
+  PAYPAL
+}
+
+enum Status {
+  PENDING
+  IN_PROGRESS
+  APROVAL
+  FINISH
+}
+
+//-------------------------------------------------------------------------------------------------------------------------
+//TABLAS
+
+//Guarda Todos los usuarios clientes y administradores
+model User {
+  id           Int     @id @default(autoincrement())
+  email        String  @unique
+  name         String
+  lastname     String?
+  passwordHash String
+  phone        String
+  role         Role    @default(USER)
+  address      String?
+  card         Int
+}
+
+//Guarda Todos los productos de la tienda
+model Products {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String
+  stock       Int
+  price       Float
+  sku         String?
+  review      String?
+  category    Category @default(OTROS)
+}
+
+//Guarda Collares, Pendientes ... 
+model categories {
+  id         Int    @id @default(autoincrement())
+  name       String
+  image      String
+  slug       String
+  position   String
+}
+
+//Guarda imagenes de cada producto
+model product_image {
+  productId Int    @id
+  position  String
+  publicId  String
+}
+
+//Guarda pedidos realizados
+model orders {
+  id            Int    @id @default(autoincrement())
+  orderNumber   Int
+  status        Status @default(PENDING)
+  total         Float
+  paymentMethod Method @default(CREDIT_CARD)
+}
+
+//Guarda Lineas de cada pedido
+model order_items {
+  orderId   Int   @id @default(autoincrement())
+  productId Int
+  price     Float
+  quantity  Int
+}
+
+//Guarda Lista de deseo de cada Usuario
+model wishlist_items {
+  userId    Int @id @default(autoincrement())
+  productId Int
+}
+
+//Guarda Carrito de cada usuario (persistente)
+model cart_items {
+  userId    Int @id @default(autoincrement())
+  productId Int
+  quantity  Int
+  size      Int
+}
+
+//Guarda Direcciones de envio guardadas
+model address {
+  userId     Int     @id @default(autoincrement())
+  line1      String
+  line2      String?
+  city       String
+  postalCode Int
+}
+
+//Guarda reseñas de productos
+model reviews {
+  userId    Int    @id @default(autoincrement())
+  productId Int
+  rating    Int
+  comment   String
+}
+
+//Guarda cupones de descuento
+model coupons {
+  id Int @id
+  code String @unique
+  type String
+  value Float
+  maxUses Int
+  expiresAt DateTime
 }
