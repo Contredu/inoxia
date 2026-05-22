@@ -45,52 +45,74 @@ enum Status {
   FINISH
 }
 
+enum Color {
+  GOLD
+  SILVER
+}
+
+enum Material {
+  STEEL
+  SILVER
+  GOLD
+  OTRO
+  MIX
+}
+
 //-------------------------------------------------------------------------------------------------------------------------
 //TABLAS
 
 //Guarda Todos los usuarios clientes y administradores
 model User {
-  id           Int     @id @default(autoincrement())
-  email        String  @unique
-  name         String
-  lastname     String?
-  passwordHash String
-  phone        String
-  role         Role    @default(USER)
-  address      String?
-  card         Int
+  id            Int     @id @default(autoincrement())
+  email         String  @unique
+  name          String
+  lastname      String?
+  passwordHash  String
+  profile_image String?
+  phone         String?
+  role          Role    @default(USER)
+  address       String?
+  creditcard          Int?
+  favorites Wishlist[]
+  orders Orders[]
 }
 
 //Guarda Todos los productos de la tienda
-model Products {
-  id          Int      @id @default(autoincrement())
+model Product {
+  id          Int        @id @default(autoincrement())
   name        String
   description String
   stock       Int
   price       Float
   sku         String?
   review      String?
-  category    Category @default(OTROS)
+  color Color
+  material Material
+  category    Category   @default(OTROS)
+  productId   Int
+  element     Categories @relation(fields: [productId], references: [id])
 }
 
 //Guarda Collares, Pendientes ... 
-model categories {
-  id         Int    @id @default(autoincrement())
-  name       String
-  image      String
-  slug       String
-  position   String
+model Categories {
+  id          Int       @id @default(autoincrement())
+  name        String
+  description String?
+  image       String?
+  slug        String
+  position    String
+  products    Product[]
 }
 
 //Guarda imagenes de cada producto
-model product_image {
+model Product_image {
   productId Int    @id
   position  String
   publicId  String
 }
 
 //Guarda pedidos realizados
-model orders {
+model Orders {
   id            Int    @id @default(autoincrement())
   orderNumber   Int
   status        Status @default(PENDING)
@@ -99,7 +121,7 @@ model orders {
 }
 
 //Guarda Lineas de cada pedido
-model order_items {
+model Order_items {
   orderId   Int   @id @default(autoincrement())
   productId Int
   price     Float
@@ -107,13 +129,14 @@ model order_items {
 }
 
 //Guarda Lista de deseo de cada Usuario
-model wishlist_items {
-  userId    Int @id @default(autoincrement())
-  productId Int
+model Wishlist {
+  userId       Int  @id @default(autoincrement())
+  productId    Int
+  element-wish User @relation(fields: [Wish-list], references: [productId])
 }
 
 //Guarda Carrito de cada usuario (persistente)
-model cart_items {
+model Cart_items {
   userId    Int @id @default(autoincrement())
   productId Int
   quantity  Int
@@ -121,7 +144,7 @@ model cart_items {
 }
 
 //Guarda Direcciones de envio guardadas
-model address {
+model Address {
   userId     Int     @id @default(autoincrement())
   line1      String
   line2      String?
@@ -130,7 +153,7 @@ model address {
 }
 
 //Guarda reseñas de productos
-model reviews {
+model Reviews {
   userId    Int    @id @default(autoincrement())
   productId Int
   rating    Int
@@ -138,11 +161,11 @@ model reviews {
 }
 
 //Guarda cupones de descuento
-model coupons {
-  id Int @id
-  code String @unique
-  type String
-  value Float
-  maxUses Int
+model Coupons {
+  id        Int      @id
+  code      String   @unique
+  type      String
+  value     Float
+  maxUses   Int
   expiresAt DateTime
 }
