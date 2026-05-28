@@ -127,8 +127,8 @@ model Orders {
   status        Status @default(PENDING)
   total         Float
   paymentMethod Method @default(CREDIT_CARD)
-  user          User?  @relation(fields: [userId], references: [id])
-  userId        Int?
+  user          User  @relation(fields: [userId], references: [id])
+  userId        Int
 }
 
 //Guarda Lineas de cada pedido
@@ -142,7 +142,8 @@ model Order_items {
 
 //Guarda Lista de deseo de cada Usuario
 model Wishlist {
-  userId    Int     @id @default(autoincrement())
+  id        Int     @id @default(autoincrement())
+  userId    Int
   productId Int
   user      User    @relation(fields: [userId], references: [id])
   product   Product @relation(fields: [productId], references: [id])
