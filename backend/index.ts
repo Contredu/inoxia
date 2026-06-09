@@ -10,7 +10,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Ruta de prueba
 app.get('/', (req, res) => {
-  res.send('Hello World! - Servidor Express funcionando');
+  res.send('Hello World! - Servidor Express + Prisma funcionando');
 });
 
 // Ruta de health check con Prisma
@@ -18,7 +18,7 @@ app.get('/health', async (req, res) => {
   try {
     await prisma.$queryRaw`SELECT 1`;
     res.json({ status: 'ok', db: 'connected' });
-  } catch (error) {
+  } catch (error: any) {
     res.status(500).json({ status: 'error', db: 'disconnected', message: error.message });
   }
 });
