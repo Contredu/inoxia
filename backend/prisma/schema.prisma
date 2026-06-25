@@ -4,12 +4,16 @@
 // Get a free hosted Postgres database in seconds: `npx create-db`
 
 //-------------------------------------------------------------------------------------------------------------------------
+// Es el archivo central de configuración
 // Provider de la Base de datos. generado automaticamente
+
+// EL generator client indica que prisma generará el código del cliente.
 generator client {
   provider = "prisma-client"
     output   = "../src/generated/prisma"
 }
 
+// Datasource define la conexión
 datasource db {
   provider = "postgresql"
 }
@@ -59,9 +63,12 @@ enum Material {
 }
 
 //-------------------------------------------------------------------------------------------------------------------------
-//TABLAS
+// Modelos define una entidad (tabla) con campos y atributos especiales.
 
-//Guarda Todos los usuarios clientes y administradores
+// TABLAS
+
+
+// Guarda Todos los usuarios clientes y administradores
 model User {
   id            Int          @id @default(autoincrement())
   email         String       @unique
