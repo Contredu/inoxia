@@ -1,5 +1,6 @@
 // Importamos los tipos generados por Prisma para el modelo Cart_items.
 // Cart_itemsCreateInput describe la forma de los datos que Prisma espera al crear un item del carrito.
+import type { Size } from "../generated/prisma/enums";
 import { Cart_itemsCreateInput } from "../generated/prisma/models";
 // Importamos la instancia de PrismaClient ya configurada para hacer las consultas a la BD.
 import prisma from "../prisma/client";
@@ -50,7 +51,7 @@ export const addToCart = async ({ userId, productId, quantity, size }:
         const newCartItem = await prisma.cart_items.create({
             data: {
                 quantity,
-                size: size ?? 0, // Tamano por defecto (size es Int en el schema), puedes cambiarlo segun tus necesidades.
+                size, // Tamano por defecto (size es S en el schema), puedes cambiarlo segun tus necesidades.
                 // Conectamos las relaciones obligatorias user y product por su id.
                 user: { connect: { id: userId } },
                 product: { connect: { id: productId } },
@@ -62,7 +63,7 @@ export const addToCart = async ({ userId, productId, quantity, size }:
 
 // ---------- DELETE (quitar del carrito) ----------
 // Recibe el userId y productId del item a eliminar (size queda disponible por si lo necesitas filtrar).
-export const removeFromCart = async (userId: number, productId: number, size: number) => {
+export const removeFromCart = async (userId: number, productId: number, size: Size) => {
     // Buscamos el item del carrito que coincida con el usuario y el producto.
     const existingCartItem = await prisma.cart_items.findFirst({
         where: { userId, productId, size },

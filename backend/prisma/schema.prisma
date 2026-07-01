@@ -10,7 +10,7 @@
 // EL generator client indica que prisma generará el código del cliente.
 generator client {
   provider = "prisma-client"
-    output   = "../src/generated/prisma"
+  output   = "../src/generated/prisma"
 }
 
 // Datasource define la conexión
@@ -62,11 +62,19 @@ enum Material {
   MIX
 }
 
+enum Size {
+  XS
+  S
+  M
+  L
+  XL
+  XXL
+}
+
 //-------------------------------------------------------------------------------------------------------------------------
 // Modelos define una entidad (tabla) con campos y atributos especiales.
 
 // TABLAS
-
 
 // Guarda Todos los usuarios clientes y administradores
 model User {
@@ -134,7 +142,7 @@ model Orders {
   status        Status @default(PENDING)
   total         Float
   paymentMethod Method @default(CREDIT_CARD)
-  user          User  @relation(fields: [userId], references: [id])
+  user          User   @relation(fields: [userId], references: [id])
   userId        Int
 }
 
@@ -161,7 +169,7 @@ model Cart_items {
   userId    Int     @id @default(autoincrement())
   productId Int
   quantity  Int
-  size      Int
+  size      Size    @default(S)
   user      User    @relation(fields: [userId], references: [id])
   product   Product @relation(fields: [productId], references: [id])
 }
