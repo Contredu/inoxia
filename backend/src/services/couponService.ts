@@ -1,7 +1,5 @@
 // FALTA POR HACER:
 
-// GET /coupons/:code
-
 // ## Reglas de negocio
 
 // - [ ]  Validar fecha de expiración
@@ -9,7 +7,6 @@
 // - [ ]  Validar disponibilidad del cupón
 
 import prisma from "../prisma/client";
-import { CouponsCreateInput } from "../generated/prisma/models";
 
 // ------------------------------------------------------------------------------------------------
 
@@ -17,7 +14,9 @@ import { CouponsCreateInput } from "../generated/prisma/models";
 const publicCouponSelect = {
     id: true,
     code: true,
-    discount: true,
+    type: true,
+    value: true,
+    maxUses: true,
     expiresAt: true,
 }
 
@@ -48,32 +47,59 @@ export const getCouponByCode = async (code: string) => {
 
 // ------------------------------------------------------------------------------------------------
 
-// Post createCoupon crea un cupon en la base de datos. Recibe un objeto con los campos del cupon como parametro.
-// export const createCoupon = async ( code: string, value: number, expiresAt: Date ) => {
-//     // Buscamos si ya hay un cupon con ese codigo. findUnique funciona aqui porque code es @unique en el schema.
-//     const existingCoupon = await prisma.coupons.findUnique({
-//         where: { code },
-//     });
+// Post createCoupon crea un cupon en la base de datos. Recibe los campos del cupon como parametros.
+export const createCoupon = async (
+    code: string,
+    couponType: string,
+    value: number,
+    maxUses: number,
+    expiresAt: Date
+) => {
+    if (!code || code.trim().length === 0) {
+        throw new Error("El código del cupón es obligatorio.");
+    }
 
-//     // Si el codigo ya esta registrado, lanzamos un error para no duplicar cupones.
-//     if (existingCoupon) {
-//         throw new Error("Cupon ya registrado.");
-//     }
+    if (!couponType || couponType.trim().length === 0) {
+        throw new Error("El tipo de cupón es obligatorio.");
+    }
 
-//     // Creamos el cupon en la base de datos.
-//     const coupon = await prisma.coupons.create({
-//         data: {
-//             code,
-//             type,
-//             value,
-//             maxUses,
-//             expiresAt
-//         },
-//         select: publicCouponSelect,
-//     });
+    if (value <= 0) {
+        throw new Error("El valor del cupón debe ser mayor a 0.");
+    }
 
-//     return coupon;
-// }
+    if (!Number.isInteger(maxUses) || maxUses <= 0) {
+        throw new Error("El campo maxUses debe ser un número entero mayor a 0.");
+    }
+
+    if (!(expiresAt instanceof Date) || Number.isNaN(expiresAt.getTime())) {
+        throw new Error("expiresAt debe ser una fecha válida.");
+    }
+
+    if (expiresAt <= new Date()) {
+        throw new Error("La fecha de expiración debe ser una fecha futura.");
+    }
+
+    const existingCoupon = await prisma.coupons.findUnique({
+        where: { code },
+    });
+
+    if (existingCoupon) {
+        throw new Error("Cupón ya registrado.");
+    }
+
+    const coupon = await prisma.coupons.create({
+        data: {
+            code,
+            type: couponType,
+            value,
+            maxUses,
+            expiresAt,
+        } as any,
+        select: publicCouponSelect,
+    });
+
+    return coupon;
+}
 
 // ------------------------------------------------------------------------------------------------
 
