@@ -48,12 +48,7 @@ export const getCouponByCode = async (code: string) => {
 // ------------------------------------------------------------------------------------------------
 
 // Post createCoupon crea un cupon en la base de datos. Recibe los campos del cupon como parametros.
-export const createCoupon = async (
-    code: string,
-    couponType: string,
-    value: number,
-    maxUses: number,
-    expiresAt: Date
+export const createCoupon = async (code: string, couponType: string, value: number, maxUses: number, expiresAt: Date
 ) => {
     if (!code || code.trim().length === 0) {
         throw new Error("El código del cupón es obligatorio.");

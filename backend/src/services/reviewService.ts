@@ -1,12 +1,10 @@
 // FALTA POR HACER:
-// - [ ]  POST /products/:id/reviews
-// - [ ]  GET /products/:id/reviews
-// - [ ]  DELETE /reviews/:id
+// - [ ]  UPDATE Valorar la posibilidad de modificar una review.
 
 // ## Reglas de negocio
 
 // - [ ]  Validar puntuación
-// - [ ]  Evitar reviews duplicadas
+
 
 import prisma from "../prisma/client";
 
@@ -48,4 +46,28 @@ export const deleteReviewByUserAndProduct = async (userId: number, productId: nu
     });
 
     return deletedReview;
+};
+
+// ------------------------------------------------------------------------------------------------
+// Create review crea una review a partir de los datos recibidos. Recibe el userId, productId, rating y comment como parametros.
+
+export const createReview = async (userId: number, productId:number, rating: number, comment:string) =>{
+    const existingReview = await prisma.reviews.findFirst({
+        where: { userId, productId }
+    });
+
+    if (existingReview) {
+        throw new Error("Ya has reseñado este producto");
+    }
+
+    const newReview = await prisma.reviews.create({
+        data: {
+            userId,
+            productId,
+            rating,
+            comment
+        }
+    });
+
+    return newReview;
 };
