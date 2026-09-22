@@ -78,39 +78,45 @@ enum Size {
 
 // Guarda Todos los usuarios clientes y administradores
 model User {
-  id            Int          @id @default(autoincrement())
-  email         String       @unique
+  id            Int      @id @default(autoincrement())
+  email         String   @unique
   name          String
   lastname      String?
   passwordHash  String
   profile_image String?
   phone         String?
-  role          Role         @default(USER)
+  role          Role     @default(USER)
   creditcard    Int?
-  favorites     Wishlist[]
-  orders        Orders[]
-  coupons       Coupons[]
-  cart_list     Cart_items[]
-  address       Address[]
-  review        Reviews[]
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  favorites Wishlist[]
+  orders    Orders[]
+  coupons   Coupons[]
+  cart_list Cart_items[]
+  address   Address[]
+  review    Reviews[]
 }
 
 //Guarda Todos los productos de la tienda
 model Product {
-  id          Int             @id @default(autoincrement())
+  id          Int      @id @default(autoincrement())
   name        String
   description String
-  stock       Int
+  stock       Int      @default(0)
   price       Float
   sku         String?
   color       Color
   material    Material
-  category    Category        @default(OTROS)
-  review      Reviews[]
-  wish        Wishlist[]
-  image       Product_image[]
-  order       Order_items[]
-  cart        Cart_items[]
+  category    Category @default(OTROS)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  review Reviews[]
+  wish   Wishlist[]
+  image  Product_image[]
+  order  Order_items[]
+  cart   Cart_items[]
 
   categories   Categories? @relation(fields: [categoriesId], references: [id])
   categoriesId Int?
@@ -137,22 +143,28 @@ model Product_image {
 
 //Guarda pedidos realizados
 model Orders {
-  id            Int    @id @default(autoincrement())
+  id            Int      @id @default(autoincrement())
   orderNumber   Int
-  status        Status @default(PENDING)
+  status        Status   @default(PENDING)
   total         Float
-  paymentMethod Method @default(CREDIT_CARD)
-  user          User   @relation(fields: [userId], references: [id])
-  userId        Int
+  paymentMethod Method   @default(CREDIT_CARD)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  userId Int
+  user   User @relation(fields: [userId], references: [id])
 }
 
 //Guarda Lineas de cada pedido
 model Order_items {
-  orderId   Int     @id @default(autoincrement())
+  orderId   Int   @id @default(autoincrement())
   productId Int
   price     Float
   quantity  Int
-  product   Product @relation(fields: [productId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  product   Product  @relation(fields: [productId], references: [id])
 }
 
 //Guarda Lista de deseo de cada Usuario
@@ -162,6 +174,8 @@ model Wishlist {
   productId Int
   user      User    @relation(fields: [userId], references: [id])
   product   Product @relation(fields: [productId], references: [id])
+
+  @@unique([userId, productId]) // Un usuario solo puede tener un producto en su lista de deseos una vez
 }
 
 //Guarda Carrito de cada usuario (persistente)
@@ -186,13 +200,15 @@ model Address {
 
 //Guarda reseñas de productos
 model Reviews {
-  id       Int     @id @default(autoincrement())
-  userId    Int    
-  productId Int
+  id        Int      @id @default(autoincrement())
   rating    Int
   comment   String
-  user      User    @relation(fields: [userId], references: [id])
-  product   Product @relation(fields: [productId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  userId    Int  // Foreign Key
+  productId Int  // Foreign Key
+  user      User     @relation(fields: [userId], references: [id])
+  product   Product  @relation(fields: [productId], references: [id])
 
   @@unique([userId, productId]) // Un usuario solo puede dejar una reseña por producto
 }
