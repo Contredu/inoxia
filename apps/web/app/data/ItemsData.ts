@@ -1,0 +1,38 @@
+export const ItemsData = [
+    {
+        id: 1,
+        name: "Anillo 1",
+        price: 100,
+        img: "#",
+        alt: "nombre del anillo",
+        category: "anillos",
+        rating: 4.8,
+    },
+    {
+        id: 2,
+        name: "Collar 1",
+        price: 18.99,
+        img: "#",
+        alt: "nombre del collar",
+        category: "Collar",
+        rating: 4.5,
+    },
+    {
+        id: 3,
+        name: "Pendiente 2",
+        price: 15.99,
+        img: "#",
+        alt: "nombre del pendiente",
+        category: "Pendiente",
+        rating: 4.9,
+    },
+    {
+        id: 4,
+        name: "Pulsera 2",
+        price: 25.99,
+        img: "#",
+        alt: "nombre de la pulsera",
+        category: "Pulsera",
+        rating: 4.7,
+    },
+];
