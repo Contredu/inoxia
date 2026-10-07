@@ -7,7 +7,7 @@ import { Footer } from "./common/Footer"
 export default function Home() {
   return (
     <>
-    <div className="w-full h-full">
+    <div className="w-full h-full mx-auto">
       {/* Navbar */}
       <Navbar/>
       
