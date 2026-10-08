@@ -11,7 +11,7 @@ export const Reviews = () => {
             {ReviewsData.length === 0 ? (
                 <p>No hay opiniones disponibles</p>
             ) : (
-                <div className="flex gap-4 mx-2 p-4 overflow-x-scroll scrollbar-hide snap-x snap-mandatory scrollbar-thumb-[#C9A84C]/20">
+                <div className="flex gap-4 mx-2 px-4 py-6 overflow-x-scroll scrollbar-hide snap-x snap-mandatory scrollbar-thumb-[#C9A84C]/20">
                     {ReviewsData.map((review) => (
                         <div key={review.id} className="shrink-0 w-96 min-w-96 h-auto border-2 border-[rgba(201,168,76,0.18)]  bg-black p-4 rounded-sm snap-center">
                             <p className="text-[#C9A84C] text-md font-bold font-mono mb-4 flex justify-start items-center gap-2">{review.rating}<PiStarThin /><PiStarThin /><PiStarThin /><PiStarThin /><PiStarThin /></p>

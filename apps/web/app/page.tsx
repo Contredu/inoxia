@@ -3,6 +3,7 @@ import { Navbar } from "./common/Navbar"
 import { Best_sellers } from "./common/Best_sellers"
 import { Reviews } from "./common/Reviews"
 import { Footer } from "./common/Footer"
+import { Header } from "./common/Header";
 
 export default function Home() {
   return (
@@ -11,6 +12,9 @@ export default function Home() {
       {/* Navbar */}
       <Navbar/>
       
+      {/* Header */}
+      <Header/>
+
       {/* Categories */}
       <Categories/>
 

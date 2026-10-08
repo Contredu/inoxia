@@ -4,7 +4,7 @@ export const Categories = () => {
     return (
         <>
             <div className="mx-6 my-16">
-                <p className="text-md font-bold text-[#C9A84C]">CATEGORÍAS</p>
+                <p className="text-md font-sans font-semibold text-[#C9A84C]">CATEGORÍAS</p>
                 <p className="text-3xl font-serif">Descubre tu estilo</p>
                 <p className="text-[#A09070]">Acero inoxidable de calidad superior. Diseños que duran</p>
             </div>
