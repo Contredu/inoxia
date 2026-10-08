@@ -32,11 +32,11 @@ export const CategoriesData = [
         alt: "Pulseras",
         stock: 144
     },
-    // {
-    //     id: 5,
-    //     name: "Conjuntos",
-    //     img: "#",
-    //     alt: "Conjuntos",
-    //     stock: 39
-    // }
+    {
+        id: 5,
+        name: "Conjuntos",
+        img: "#",
+        alt: "Conjuntos",
+        stock: 39
+    }
 ]
