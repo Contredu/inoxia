@@ -12,6 +12,7 @@
     --text-muted: #6B6050;
     --border: rgba(201,168,76,0.18);
     --border-hover: rgba(201,168,76,0.45);
+    /* font.family para price: font-serif */
 }
 
 body {
