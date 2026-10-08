@@ -4,7 +4,7 @@ import { ReviewsData } from "../data/ReviewsData";
 export const Reviews = () => {
     return (
         <>
-            <div className="my-6 mx-6">
+            <div className="my-16 mx-6">
                 <p className="text-md font-sans font-semibold text-[#C9A84C]">OPINIONES</p>
                 <p className="text-3xl font-serif">Lo que dice nuestrass clientas</p>
             </div>

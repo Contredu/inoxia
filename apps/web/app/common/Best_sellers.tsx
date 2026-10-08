@@ -6,7 +6,7 @@ import { FaRegHeart } from "react-icons/fa6";
 export const Best_sellers = () => {
     return (
         <>
-            <div className="my-6 mx-6">
+            <div className="my-16 mx-6">
                 <p className="text-md font-bold text-[#C9A84C]">SELECCIÓN DE TEMPORADA</p>
                 <p className="text-3xl font-serif">Más vendidos</p>
                 <ul className="flex justify-start items-center gap-4 w-full mt-4 text-[#C9A84C]">
