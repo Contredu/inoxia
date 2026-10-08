@@ -3,12 +3,12 @@ import { CategoriesData } from "../data/CategoriesData";
 export const Categories = () => {
     return (
         <>
-            <div className="my-6 mx-2">
+            <div className="m-6">
                 <p className="text-md font-bold text-[#C9A84C]">CATEGORÍAS</p>
                 <p className="text-3xl font-serif">Descubre tu estilo</p>
                 <p className="text-[#A09070]">Acero inoxidable de calidad superior. Diseños que duran</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
+            <div className=" mx-4 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
                 {CategoriesData.length === 0 ? (
                     <p>No hay categorias disponibles</p>
                 ) : (

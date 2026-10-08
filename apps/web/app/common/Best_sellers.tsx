@@ -6,7 +6,7 @@ import { FaRegHeart } from "react-icons/fa6";
 export const Best_sellers = () => {
     return (
         <>
-            <div className="my-6 mx-2">
+            <div className="my-6 mx-6">
                 <p className="text-md font-bold text-[#C9A84C]">SELECCIÓN DE TEMPORADA</p>
                 <p className="text-3xl font-serif">Más vendidos</p>
                 <ul className="flex justify-start items-center gap-4 w-full mt-4 text-[#C9A84C]">
@@ -20,7 +20,7 @@ export const Best_sellers = () => {
 
                 </ul>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
+            <div className="mx-5 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
                 {ItemsData.length === 0 ? (
                     <p>No hay categorias disponibles</p>
                 ) : (
