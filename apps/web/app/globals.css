@@ -16,6 +16,6 @@
 }
 
 body {
-  background: var(--bg-dark);
+  background: var(--bg-card);
   color: var(--text-primary);
 }

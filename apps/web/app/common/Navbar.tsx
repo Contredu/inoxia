@@ -21,7 +21,7 @@ export const Navbar = () => {
     return (
 
         <>
-            <nav className="flex justify-between items-center h-15 my-4">
+            <nav className="flex justify-between items-center h-15 py-4 bg-black top-0 sticky z-10 ">
                 <a href="#"><img className="w-80 h-19 object-cover" src="./inoxia_metalico.webp" alt="Logo inoxia" /></a>
                 <ul className="flex justify-center items-center gap-10 w-full">
                     <li><a href="#">Inicio</a></li>
