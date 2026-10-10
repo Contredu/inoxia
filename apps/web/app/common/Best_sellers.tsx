@@ -10,13 +10,13 @@ export const Best_sellers = () => {
                 <p className="text-md font-sans font-semibold text-[#C9A84C]">SELECCIÓN DE TEMPORADA</p>
                 <p className="text-3xl font-serif">Más vendidos</p>
                 <ul className="flex justify-start items-center gap-4 w-full mt-4 text-[#C9A84C]">
-                    <a href="#" className="border-2 border-[rgba(201,168,76,0.18)] rounded-4xl px-3 hover:border-[#C9A84C]/45 hover:shadow-md hover:shadow-[#C9A84C]/50"><li>Todos</li></a>
-                    <a href="#" className="border-2 border-[rgba(201,168,76,0.18)] rounded-4xl px-3 hover:border-[#C9A84C]/45 hover:shadow-md hover:shadow-[#C9A84C]/50"><li>Anillos</li></a>
-                    <a href="#" className="border-2 border-[rgba(201,168,76,0.18)] rounded-4xl px-3 hover:border-[#C9A84C]/45 hover:shadow-md hover:shadow-[#C9A84C]/50"><li>Collares</li></a>
-                    <a href="#" className="border-2 border-[rgba(201,168,76,0.18)] rounded-4xl px-3 hover:border-[#C9A84C]/45 hover:shadow-md hover:shadow-[#C9A84C]/50"><li>Pendientes</li></a>
-                    <a href="#" className="border-2 border-[rgba(201,168,76,0.18)] rounded-4xl px-3 hover:border-[#C9A84C]/45 hover:shadow-md hover:shadow-[#C9A84C]/50"><li>Pulseras</li></a>
-                    <a href="#" className="border-2 border-[rgba(201,168,76,0.18)] rounded-4xl px-3 hover:border-[#C9A84C]/45 hover:shadow-md hover:shadow-[#C9A84C]/50"><li>Novedades</li></a>
-                    <a href="#" className="border-2 border-[rgba(201,168,76,0.18)] rounded-4xl px-3 hover:border-[#C9A84C]/45 hover:shadow-md hover:shadow-[#C9A84C]/50"><li>Ofertas</li></a>
+                    <a href="#" className="border-2 border-[rgba(201,168,76,0.18)] rounded-4xl px-3 hover:border-[#C9A84C]/45 hover:shadow-md hover:shadow-[#C9A84C]/50 hover:text-white transition-all duration-300 transform hover:scale-105"><li>Todos</li></a>
+                    <a href="#" className="border-2 border-[rgba(201,168,76,0.18)] rounded-4xl px-3 hover:border-[#C9A84C]/45 hover:shadow-md hover:shadow-[#C9A84C]/50 hover:text-white transition-all duration-300 transform hover:scale-105"><li>Anillos</li></a>
+                    <a href="#" className="border-2 border-[rgba(201,168,76,0.18)] rounded-4xl px-3 hover:border-[#C9A84C]/45 hover:shadow-md hover:shadow-[#C9A84C]/50 hover:text-white transition-all duration-300 transform hover:scale-105"><li>Collares</li></a>
+                    <a href="#" className="border-2 border-[rgba(201,168,76,0.18)] rounded-4xl px-3 hover:border-[#C9A84C]/45 hover:shadow-md hover:shadow-[#C9A84C]/50 hover:text-white transition-all duration-300 transform hover:scale-105"><li>Pendientes</li></a>
+                    <a href="#" className="border-2 border-[rgba(201,168,76,0.18)] rounded-4xl px-3 hover:border-[#C9A84C]/45 hover:shadow-md hover:shadow-[#C9A84C]/50 hover:text-white transition-all duration-300 transform hover:scale-105"><li>Pulseras</li></a>
+                    <a href="#" className="border-2 border-[rgba(201,168,76,0.18)] rounded-4xl px-3 hover:border-[#C9A84C]/45 hover:shadow-md hover:shadow-[#C9A84C]/50 hover:text-white transition-all duration-300 transform hover:scale-105"><li>Novedades</li></a>
+                    <a href="#" className="border-2 border-[rgba(201,168,76,0.18)] rounded-4xl px-3 hover:border-[#C9A84C]/45 hover:shadow-md hover:shadow-[#C9A84C]/50 hover:text-white transition-all duration-300 transform hover:scale-105"><li>Ofertas</li></a>
 
                 </ul>
             </div>
