@@ -1,4 +1,4 @@
-import { FaBagShopping } from "react-icons/fa6";
+import { FaBagShopping, FaHeart } from "react-icons/fa6";
 import { FaUser } from "react-icons/fa6";
 import { FaSearch } from "react-icons/fa";
 
@@ -38,6 +38,8 @@ export const Navbar = () => {
                     <button className="flex justify-center items-center border-2 border-[#A09070] p-2 rounded-full size-10">
                         <FaUser className="text-[#C9A84C]" />
                     </button>
+                    {/* FALTA EDITAR DE LISTA DE DESEOS */}
+                    <button><FaHeart /></button>
                     <button className="flex justify-center items-center border-2 border-[#A09070] p-2 rounded-full relative size-10">
                         <FaBagShopping className="text-[#C9A84C]" />
                         <span className="absolute top-0 right-0 bg-[#C9A84C] text-white rounded-full w-4 h-4 flex justify-center items-center text-xs" id="cartBadge">0</span>

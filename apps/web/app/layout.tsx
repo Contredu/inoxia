@@ -17,13 +17,15 @@ export const metadata: Metadata = {
   description: "Inoxia Jewerly, es una tienda de joyeria online dedicada a la venta de joyeria de acero inoxidable, Stainless Steel  y Xuping.",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: {children: React.ReactNode}) {
   return (
     <html
       lang="es"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+      </body>
     </html>
   );
 }
