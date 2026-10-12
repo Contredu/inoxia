@@ -21,7 +21,7 @@ export const Navbar = () => {
     return (
 
         <>
-            <nav className="flex justify-between items-center h-15 py-4 bg-black top-0 sticky z-10 ">
+            <nav className="flex justify-between items-center w-full h-15 py-4 bg-black top-0 sticky z-10 ">
                 <a href="#"><img className="w-80 h-19 object-cover mx-3" src="./inoxia_metalico.webp" alt="Logo inoxia" /></a>
                 <ul className="flex justify-center items-center gap-10 w-full">
                     <li><a href="#">Inicio</a></li>
@@ -30,7 +30,7 @@ export const Navbar = () => {
                     <li><a href="#">Sobre Nosotros</a></li>
                     <li><a href="#">Contacto</a></li>
                 </ul>
-                <div className="flex items-center justify-end pr-12 gap-6 w-full">
+                <div className="flex items-center justify-end gap-6 w-full">
                     <div className="flex justify-center items-center px-2 gap-2 border-2 border-[#A09070] rounded-2xl">
                         <FaSearch className="text-[#A09070]" />
                         <input type="text" placeholder="Buscar joyas..." id="searchInput" />

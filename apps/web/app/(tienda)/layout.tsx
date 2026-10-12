@@ -6,7 +6,7 @@ import { Footer } from "../common/Footer";
 export default function TiendaLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <Navbar />
+      <Navbar/>
       <main className="flex-1">{children}</main>
       <Footer />
     </>
