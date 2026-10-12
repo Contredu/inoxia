@@ -6,7 +6,7 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
   return (
     <>
       <NavbarLogin /> {/* Un navbar simple, tal vez solo con el logo */}
-      <main className="flex-1">{children}</main>
+      <main className="flex-1 bg-black">{children}</main>
       <Footer />
     </>
   );
