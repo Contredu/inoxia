@@ -6,10 +6,10 @@ import { IoWater, IoShieldCheckmark } from "react-icons/io5";
 export default function ItemPage() {
 
     const itemData = {
-        'name': 'Pendiente Largo',
+        'name': 'Collar cola de sirena',
         'price': '12.99 €',
         'image': '../collar_enfocado.webp',
-        'description': 'Un pendiente largo con un diseño elegante y moderno. Perfecto para cualquier ocasión.',
+        'description': 'Un pendiente largo con un diseño elegante y moderno. Perfecto para cualquier ocasión en la cual luciras unica y especial.',
         'sizes': [],
         'condition': 'Mas vendido',
         'status': '',
@@ -20,12 +20,12 @@ export default function ItemPage() {
 
     return (
         <>
-            <div className="grid grid-cols-1 md:grid-cols-2 border-2">
-                <div className="size-100 m-10 border-2 ">
+            <div className="grid grid-cols-1 sm:grid-cols-2">
+                <div className="size-130 m-auto border-2 border-[#C9A84C]/30">
                     <img src={itemData['image']} alt="" className="w-full h-full object-cover object-[100%_26%]" />
                 </div>
 
-                <div className="border-2 border-[#C9A84C]flex gap-4 p-6">
+                <div className="flex flex-col py-6 px-10">
 
                     {/* Condition */}
                     {itemData['condition'] !== '' ? <p className="text-[#C9A84C]/80 text-sm">{itemData['condition']}</p> : ''}
@@ -35,43 +35,44 @@ export default function ItemPage() {
                     <p className="text-xs mb-2">{itemData['rating']}<span> ({itemData['numeroReviews']} Reseñas)</span></p>
 
                     {/* Precio */}
-                    <p className="text-2xl font-semibold text-[#C9A84C] mb-6">{itemData['price']}</p>
+                    <p className="text-2xl font-semibold text-[#C9A84C] mb-6">{itemData['price']} <span className="text-xs text-[#C9A84C]/30">IVA incluido</span></p>
 
                     {/* Descripción */}
                     <p className="text-white mb-6 text-lg">{itemData['description']}</p>
 
-                    {/* Materiales */}
-                    <div className="flex gap-2 text-sm mb-6">
-                        <FaDrumSteelpan className="text-[#C9A84C]" />
-                        <p className="text-white">Acero inoxidable de alta calidad</p>
-                    </div>
+                    {/* Características */}
+                    <div className="flex flex-col items-start gap-2 text-sm mb-6">
+                        <div className="flex items-center gap-2">
+                            <FaDrumSteelpan className="text-[#C9A84C]" />
+                            <p className="text-white">Acero inoxidable de alta calidad</p>
+                        </div>
 
-                    {/* Resistente al agua */}
-                    <div className="flex gap-2 text-sm mb-6">
-                        <IoWater className="text-[#C9A84C]" />
-                        <p className="text-white">Resistente al agua y al sudor</p>
-                    </div>
+                        {/* Resistente al agua */}
+                        <div className="flex items-center gap-2">
+                            <IoWater className="text-[#C9A84C]" />
+                            <p className="text-white">Resistente al agua y al sudor</p>
+                        </div>
 
-                    {/* Hipoalergenico */}
-                    <div className="flex gap-2 text-sm mb-6">
-                        <IoShieldCheckmark className="text-[#C9A84C]" />
-                        <p className="text-white">Hipoalergénico</p>
-                    </div>
-
-
-                    {/* Tallas disponibles */}
-                    {itemData['sizes'].length > 0 ?(
-                    <div className="mb-6">
-                        <h3 className="text-white font-semibold text-lg mb-3">Tallas disponibles</h3>
-                        <div className="flex gap-3">
-                            {itemData['sizes'].map((size: string, index: number) => (
-                                <button key={index} className="border-2 border-[#C9A84C] px-4 py-2 rounded-full text-white hover:bg-[#C9A84C] hover:text-black transition-colors cursor-pointer">
-                                    {size}
-                                </button>
-                            ))}
+                        {/* Hipoalergenico */}
+                        <div className="flex items-center gap-2">
+                            <IoShieldCheckmark className="text-[#C9A84C]" />
+                            <p className="text-white">Hipoalergénico</p>
                         </div>
                     </div>
-                    ):(
+
+                    {/* Tallas disponibles */}
+                    {itemData['sizes'].length > 0 ? (
+                        <div className="mb-6">
+                            <h3 className="text-white font-semibold text-lg mb-3">Tallas disponibles</h3>
+                            <div className="flex gap-3">
+                                {itemData['sizes'].map((size: string, index: number) => (
+                                    <button key={index} className="border-2 border-[#C9A84C] px-4 py-2 rounded-full text-white hover:bg-[#C9A84C] hover:text-black transition-colors cursor-pointer">
+                                        {size}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+                    ) : (
                         <p className="text-white">Talla única</p>
                     )}
                     <hr className="border-[#C9A84C]/30 my-4" />
