@@ -10,7 +10,7 @@ export const Footer = () => {
         <>
             <footer className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 bg-black p-2 border-b-2 border-[#C9A84C]/20" id="Footer">
                 <div className="p-6">
-                    <a href="#"><img className="w-40" src="./inoxia_metalico.webp" alt="Logo inoxia" /></a>
+                    <a href="#"><img className="w-40" src="../inoxia_metalico.webp" alt="Logo inoxia" /></a>
                     <p className="text-xs text-[#A09070]">Joyería de acero inoxidable de alta calidad.</p>
                     <p className="text-xs text-[#A09070]">Diseños atemporales que brillan con fuerza.</p>
                     <p className="text-xs text-[#A09070]">y duran para siempre.</p>

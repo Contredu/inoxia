@@ -21,8 +21,8 @@ export const Navbar = () => {
     return (
 
         <>
-            <nav className="flex justify-between items-center w-full h-15 py-4 bg-black top-0 sticky z-10 ">
-                <a href="#"><img className="w-80 h-19 object-cover mx-3" src="./inoxia_metalico.webp" alt="Logo inoxia" /></a>
+            <nav className="flex justify-between items-center w-full h-15 py-4 px-2 bg-black top-0 sticky z-10 ">
+                <a href="#"><img className="w-80 h-19 object-cover mx-3" src="../inoxia_metalico.webp" alt="Logo inoxia" /></a>
                 <ul className="flex justify-center items-center gap-10 w-full">
                     <li><a href="#">Inicio</a></li>
                     <li><a href="#">Colecciones</a></li>
@@ -39,7 +39,7 @@ export const Navbar = () => {
                         <FaUser className="text-[#C9A84C]" />
                     </button>
                     {/* FALTA EDITAR DE LISTA DE DESEOS */}
-                    <button><FaHeart /></button>
+                    <button className="flex justify-center items-center border-2 border-[#A09070] p-2 rounded-full size-10"><FaHeart className="text-[#C9A84C]" /></button>
                     <button className="flex justify-center items-center border-2 border-[#A09070] p-2 rounded-full relative size-10">
                         <FaBagShopping className="text-[#C9A84C]" />
                         <span className="absolute top-0 right-0 bg-[#C9A84C] text-white rounded-full w-4 h-4 flex justify-center items-center text-xs" id="cartBadge">0</span>

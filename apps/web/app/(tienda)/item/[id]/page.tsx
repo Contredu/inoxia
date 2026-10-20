@@ -1,5 +1,5 @@
 import { FaArrowRightLong, FaTruck, FaHeart, FaDrumSteelpan } from "react-icons/fa6";
-import { IoWater, IoShieldCheckmark } from "react-icons/io5";
+import { IoWater, IoShieldCheckmark, IoDiamondSharp, IoGift } from "react-icons/io5";
 
 
 
@@ -20,6 +20,8 @@ export default function ItemPage() {
 
     return (
         <>
+
+            {/* Item unico */}
             <div className="grid grid-cols-1 sm:grid-cols-2">
                 <div className="size-130 m-auto border-2 border-[#C9A84C]/30">
                     <img src={itemData['image']} alt="" className="w-full h-full object-cover object-[100%_26%]" />
@@ -101,6 +103,22 @@ export default function ItemPage() {
                     <p className="flex items-center gap-2 text-xs mt-5 text-left"><FaTruck />Envio en 24/48h | Devoluciones en 14 días </p>
                 </div>
 
+            </div>
+
+            {/* Caracteristicas */}
+            <div className="grid grid-cols-1 sm:grid-cols-4 sm:gap-0 gap-5 mb-10 p-5">
+                <div className="flex flex-col justify-center items-center sm:border-r border-[#C9A84C]/30"><IoWater className="text-[#C9A84C]" />RESISTENTE AL AGUA
+                    <p className="text-xs">Llevala contigo sin límites.</p>
+                </div>
+                <div className="flex flex-col justify-center items-center sm:border-r border-[#C9A84C]/30"><IoDiamondSharp className="text-[#C9A84C]" />ACERO INOXIDABLE DE ALTA CALIDAD
+                    <p className="text-xs">No se oxida, no se decolora, siempre brilla.</p>
+                </div>
+                <div className="flex flex-col justify-center items-center sm:border-r border-[#C9A84C]/30"><IoShieldCheckmark className="text-[#C9A84C]" /> HIPOALERGÉNICO
+                    <p className="text-xs">Cuida tu piel siempre.</p>
+                </div>
+                <div className="flex flex-col justify-center items-center"><IoGift className="text-[#C9A84C]" />ENVÍOS SEGUROS
+                    <p className="text-xs">Tu joya en perfectas condiciones.</p>
+                </div>
             </div>
         </>
     )
