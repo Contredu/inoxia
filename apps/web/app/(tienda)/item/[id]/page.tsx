@@ -1,5 +1,5 @@
 import { FaArrowRightLong, FaTruck, FaHeart, FaDrumSteelpan } from "react-icons/fa6";
-import { IoWater, IoShieldCheckmark, IoDiamondSharp, IoGift } from "react-icons/io5";
+import { IoWater, IoShieldCheckmark, IoDiamondSharp, IoGift, IoPersonCircle } from "react-icons/io5";
 
 
 
@@ -15,7 +15,8 @@ export default function ItemPage() {
         'status': '',
         'rating': 4.5,
         'colors': ["Dorado", "Plata"],
-        'numeroReviews': 145
+        'numeroReviews': 145,
+        'reviewBody': []
     }
 
     return (
@@ -118,6 +119,33 @@ export default function ItemPage() {
                 </div>
                 <div className="flex flex-col justify-center items-center"><IoGift className="text-[#C9A84C]" />ENVÍOS SEGUROS
                     <p className="text-xs">Tu joya en perfectas condiciones.</p>
+                </div>
+            </div>
+
+            <div className="flex flex-col gap-4 my-20">
+                <div className="flex flex-col gap-3 my-auto mx-3">
+                    <p className="text-xs">LO QUE DICEN NUESTRAS CLIENTAS</p>
+                    <p className="text-3xl">OPINIONES REALES</p>
+                </div>
+
+                {/*Reviews del producto*/}
+                <div className="mx-2 grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                    {itemData['reviewBody'].length === 0 ? (
+                        <div className="justify-center items-center w-full flex-col p-3">
+                            <p className="text-xs text-end">No hay reseñas para este producto</p>
+                        </div>
+                    ) : (
+                        itemData['reviewBody'].map((review: string, index: number) => (
+                            <div key={index} className="border-2 border-[#C9A84C]/50 p-3">
+                                <div className="size-10 rounded-full my-2">
+                                    <IoPersonCircle className="w-full h-full" />
+                                </div>
+                                <p className="line-clamp-2 text-xs ">{review}</p>
+                                <p className="text-xs my-2">María P.<br />⭐⭐⭐⭐⭐</p>
+                                <p className="text-xs">Hace 2 días</p>
+                            </div>
+                        ))
+                    )}
                 </div>
             </div>
         </>
