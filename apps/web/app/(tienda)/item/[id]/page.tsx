@@ -1,6 +1,13 @@
 import { FaArrowRightLong, FaTruck, FaHeart, FaDrumSteelpan } from "react-icons/fa6";
 import { IoWater, IoShieldCheckmark, IoDiamondSharp, IoGift, IoPersonCircle } from "react-icons/io5";
 
+// FALTA POR HACER EN ESTA VISTA:
+// -INTERACTIVIDAD CON LA BASE DE DATOS CUANDO ESTE TERMINADA
+// -CONSULTAR SI EXISTE EL ITEM, SI NO, REDIRECCIONAR A LA TIENDA
+// -EN OPINIONES INSERTAR LA OPCION DE LA IMAGEN SI EL CLIENTE QUIERE ADJUNTAR UNA IMAGEN DEL PRODUCTO
+// -INSERTAR MAS OPCIONES DE IMAGEN
+// -FLECHAS PARA PASAR LAS IMAGENES DEL PRODUCTO ACTUAL Y DE LAS REVIEWS Y PRODIA INTERESARTE (INTERACTIVIDAD)
+// -FUNCIONES DE LOS BOTONES AÑADRI A CARRITO, CANTIDADES, LISTA DE DESEOS Y CORAZON.
 
 
 export default function ItemPage() {
@@ -9,15 +16,48 @@ export default function ItemPage() {
         'name': 'Collar cola de sirena',
         'price': '12.99 €',
         'image': '../collar_enfocado.webp',
-        'description': 'Un pendiente largo con un diseño elegante y moderno. Perfecto para cualquier ocasión en la cual luciras unica y especial.',
+        'description': 'Un collar  con un diseño elegante y moderno. Perfecto para cualquier ocasión en la cual luciras única y especial.',
         'sizes': [],
         'condition': 'Mas vendido',
         'status': '',
         'rating': 4.5,
         'colors': ["Dorado", "Plata"],
         'numeroReviews': 145,
-        'reviewBody': []
+        'reviewBody': ["Lo volvere a comprar", "me encanta comprar en esta tienda", "Todos los productos son geniales", "Producto de gran calidad"]
     }
+
+    const itemsList = [
+        {
+            'name': 'Collar cola de sirena',
+            'price': '12.99 €',
+            'image': '../collar_enfocado.webp'
+        },
+        {
+            'name': 'Collar cola de sirena',
+            'price': '12.99 €',
+            'image': '../collar_enfocado.webp'
+        },
+        {
+            'name': 'Collar cola de sirena',
+            'price': '12.99 €',
+            'image': '../collar_enfocado.webp'
+        },
+        {
+            'name': 'Anillo de serpiente',
+            'price': '5.99 €',
+            'image': '#'
+        },
+        {
+            'name': 'Brazalete de oro',
+            'price': '22.99 €',
+            'image': '#'
+        },
+        {
+            'name': 'Brazalete de oro',
+            'price': '22.99 €',
+            'image': '#'
+        },
+    ]
 
     return (
         <>
@@ -122,27 +162,55 @@ export default function ItemPage() {
                 </div>
             </div>
 
+            {/*Reviews del producto*/}
             <div className="flex flex-col gap-4 my-20">
                 <div className="flex flex-col gap-3 my-auto mx-3">
                     <p className="text-xs">LO QUE DICEN NUESTRAS CLIENTAS</p>
                     <p className="text-3xl">OPINIONES REALES</p>
                 </div>
 
-                {/*Reviews del producto*/}
-                <div className="mx-2 grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                <div className="mx-2 flex flex-wrap gap-2">
                     {itemData['reviewBody'].length === 0 ? (
                         <div className="justify-center items-center w-full flex-col p-3">
-                            <p className="text-xs text-end">No hay reseñas para este producto</p>
+                            <p className="text-center">No hay reseñas para este producto</p>
                         </div>
                     ) : (
                         itemData['reviewBody'].map((review: string, index: number) => (
-                            <div key={index} className="border-2 border-[#C9A84C]/50 p-3">
+                            <div key={index} className="w-80 lg:w-90 border-2 border-[#C9A84C]/50 p-3">
                                 <div className="size-10 rounded-full my-2">
                                     <IoPersonCircle className="w-full h-full" />
                                 </div>
                                 <p className="line-clamp-2 text-xs ">{review}</p>
                                 <p className="text-xs my-2">María P.<br />⭐⭐⭐⭐⭐</p>
                                 <p className="text-xs">Hace 2 días</p>
+                            </div>
+                        ))
+                    )}
+                </div>
+            </div>
+
+            {/*Tambien podría interesarte*/}
+            <div className="flex flex-col gap-4 my-20">
+                <div className="flex flex-col gap-3 my-auto mx-3">
+                    <p className="text-xs">TAMBIÉN TE PUEDE GUSTAR</p>
+                </div>
+
+                <div className="mx-2 flex flex-wrap sm:flex-nowrap gap-4">
+                    {itemsList.length === 0 ? (
+                        <div className="justify-center items-center w-full flex-col p-3">
+                            <p className="text-center">No hay productos relacionados</p>
+                        </div>
+                    ) : (
+                        itemsList.map((item: any, index: number) => (
+                            <div key={index} className="relative group border border-[#C9A84C]/50 transition-all duration-300 hover:scale-110 size-50">
+                                <img src={item['image']} alt={item['name']} className="w-full h-[70%] object-cover" />
+                                <div className="absolute bottom-1 left-1">
+                                    <p className="text-left text-white text-sm">{item['name']}</p>
+                                    <p className="text-left text-white text-sm font-serif">{item['price']}</p>
+                                    <button className="flex items-center gap-2 text-xs text-left text-[#C9A84C] hover:text-[#E8C96A] hover:transition-all hover:duration-300 hover:underline">Ir al producto
+                                        <FaArrowRightLong />
+                                    </button>
+                                </div>
                             </div>
                         ))
                     )}
