@@ -1,4 +1,38 @@
+import { FaArrowRightLong } from "react-icons/fa6"
+
 export default function Tienda() {
+    const itemsList = [
+        {
+            'name': 'Collar cola de sirena',
+            'price': '12.99 €',
+            'image': '../collar_enfocado.webp'
+        },
+        {
+            'name': 'Collar cola de sirena',
+            'price': '12.99 €',
+            'image': '../collar_enfocado.webp'
+        },
+        {
+            'name': 'Collar cola de sirena',
+            'price': '12.99 €',
+            'image': '../collar_enfocado.webp'
+        },
+        {
+            'name': 'Anillo de serpiente',
+            'price': '5.99 €',
+            'image': '#'
+        },
+        {
+            'name': 'Brazalete de oro',
+            'price': '22.99 €',
+            'image': '#'
+        },
+        {
+            'name': 'Brazalete de oro',
+            'price': '22.99 €',
+            'image': '#'
+        },
+    ]
     return (
         <>
             <div className="flex w-full h-full">
@@ -17,7 +51,7 @@ export default function Tienda() {
                             <li className="flex items-center gap-2"><input type="checkbox" className="accent-[#C9A84C]" />Tobilleras</li>
                         </ul>
                     </div>
-                    <hr className="border-[#C9A84C]/50"/>
+                    <hr className="border-[#C9A84C]/50" />
                     <div className="flex flex-col items-start justify-center p-2">
                         <p className="font-semibold text-sm my-2">COLOR</p>
                         <ul className="">
@@ -27,7 +61,7 @@ export default function Tienda() {
                             <li className="flex items-center gap-2"><button className="rounded-full bg-linear-to-b from-yellow-500 via-blue-400 to-red-500 size-4"></button>Mix</li>
                         </ul>
                     </div>
-                    <hr className="border-[#C9A84C]/50"/>
+                    <hr className="border-[#C9A84C]/50" />
                     <div className="flex flex-col items-start justify-center p-2">
                         <p className="font-semibold text-sm my-2">MATERIAL</p>
                         <ul className="">
@@ -38,7 +72,7 @@ export default function Tienda() {
                             <li className="flex items-center gap-2"><input type="checkbox" className="accent-[#C9A84C]" />Metal-cristal</li>
                         </ul>
                     </div>
-                    <hr className="border-[#C9A84C]/50"/>
+                    <hr className="border-[#C9A84C]/50" />
 
                     {/* falta interactividad de la barra */}
                     <div className="flex flex-col items-start justify-center p-2">
@@ -54,8 +88,54 @@ export default function Tienda() {
                 </div>
 
                 {/* Lista de todos los items */}
-                <div>
+                <div className="flex flex-col items-start w-full p-2">
 
+                    {/* filtrado y ordenado */}
+                    <div className="flex justify-between items-center w-full">
+                        <p className="text-sm lg:pl-6">Mostrando 1 - 12 de 250 productos</p>
+                        <div className="flex justify-end items-center text-sm lg:pr-4">
+                            Ordenado por:
+                            <select className="border-2 border-[#C9A84C]/50 mx-2 p-2">
+                                <option className="text-white bg-[#1F1F1F]" value="" >Ascendente</option>
+                                <option className="text-white bg-[#1F1F1F]" value="" selected>Descendente</option>
+                                <option className="text-white bg-[#1F1F1F]" value="">Mas vendidos</option>
+                                <option className="text-white bg-[#1F1F1F]" value="" >Mas recientes</option>
+                                <option className="text-white bg-[#1F1F1F]" value="">Ofertas</option>
+                                <option className="text-white bg-[#1F1F1F]" value="">Relevantes</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    {/* Todos los items de la tienda */}
+                    <div className="flex flex-wrap justify-evenly w-full gap-4 my-4 lg:my-6 lg:gap-6">
+                        {itemsList.length === 0 ? (
+                            <div className="justify-center items-center w-full flex-col p-3">
+                                <p className="text-center">No hay productos relacionados</p>
+                            </div>
+                        ) : (
+                            itemsList.map((item: any, index: number) => (
+                                <div key={index} className="relative group border border-[#C9A84C]/50 transition-all duration-300 hover:scale-110 size-50 lg:size-96 lg:hover:scale-105">
+                                    <img src={item['image']} alt={item['name']} className="w-full h-[70%] object-cover" />
+                                    <div className="absolute bottom-1 left-1">
+                                        <p className="text-left text-white text-sm">{item['name']}</p>
+                                        <p className="text-left text-white text-sm font-serif">{item['price']}</p>
+                                        <button className="flex items-center gap-2 text-xs text-left text-[#C9A84C] hover:text-[#E8C96A] hover:transition-all hover:duration-300 hover:underline">Ir al producto
+                                            <FaArrowRightLong />
+                                        </button>
+                                    </div>
+                                </div>
+                            ))
+                        )}
+                    </div>
+
+                    {/* Paginación */}
+                    <div className="flex justify-center w-full my-4 gap-2">
+                        <button className="border-2 border-[#C9A84C]/50 px-2 py-1 rounded-lg text-white hover:bg-[#C9A84C] hover:text-black transition-colors cursor-pointer">flecha izq</button>
+                        <button className="border-2 border-[#C9A84C]/50 px-2 py-1 rounded-lg text-white hover:bg-[#C9A84C] hover:text-black transition-colors cursor-pointer">1</button>
+                        <button className="border-2 border-[#C9A84C]/50 px-2 py-1 rounded-lg text-white hover:bg-[#C9A84C] hover:text-black transition-colors cursor-pointer">2</button>
+                        <button className="border-2 border-[#C9A84C]/50 px-2 py-1 rounded-lg text-white hover:bg-[#C9A84C] hover:text-black transition-colors cursor-pointer">3</button>
+                        <button className="border-2 border-[#C9A84C]/50 px-2 py-1 rounded-lg text-white hover:bg-[#C9A84C] hover:text-black transition-colors cursor-pointer">flecha der</button>
+                    </div>
                 </div>
             </div>
         </>
