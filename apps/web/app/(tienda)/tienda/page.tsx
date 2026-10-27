@@ -1,35 +1,51 @@
-import { FaArrowRightLong } from "react-icons/fa6"
+import { FaArrowRightLong, FaRegHeart } from "react-icons/fa6"
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { FaCartPlus } from "react-icons/fa";
+
+
 
 export default function Tienda() {
     const itemsList = [
         {
+            'category': 'Collares',
             'name': 'Collar cola de sirena',
             'price': '12.99 €',
+            'rating': '4.5',
             'image': '../collar_enfocado.webp'
         },
         {
+            'category': 'Collares',
             'name': 'Collar cola de sirena',
             'price': '12.99 €',
+            'rating': '4.2',
             'image': '../collar_enfocado.webp'
         },
         {
+            'category': 'Collares',
             'name': 'Collar cola de sirena',
             'price': '12.99 €',
+            'rating': '4.0',
             'image': '../collar_enfocado.webp'
         },
         {
+            'category': 'Anillos',
             'name': 'Anillo de serpiente',
             'price': '5.99 €',
+            'rating': '4.8',
             'image': '#'
         },
         {
+            'category': 'Pulseras',
             'name': 'Brazalete de oro',
             'price': '22.99 €',
+            'rating': '4.6',
             'image': '#'
         },
         {
+            'category': 'Pulseras',
             'name': 'Brazalete de oro',
             'price': '22.99 €',
+            'rating': '4.9',
             'image': '#'
         },
     ]
@@ -100,6 +116,7 @@ export default function Tienda() {
                                 <option className="text-white bg-[#1F1F1F]" value="" selected>Descendente</option>
                                 <option className="text-white bg-[#1F1F1F]" value="">Mas vendidos</option>
                                 <option className="text-white bg-[#1F1F1F]" value="" >Mas recientes</option>
+                                <option className="text-white bg-[#1F1F1F]" value="" >Novedades</option>
                                 <option className="text-white bg-[#1F1F1F]" value="">Ofertas</option>
                                 <option className="text-white bg-[#1F1F1F]" value="">Relevantes</option>
                             </select>
@@ -114,13 +131,22 @@ export default function Tienda() {
                             </div>
                         ) : (
                             itemsList.map((item: any, index: number) => (
-                                <div key={index} className="relative group border border-[#C9A84C]/50 transition-all duration-300 hover:scale-110 size-50 lg:size-96 lg:hover:scale-105">
+                                <div key={index} className="flex flex-col relative justify-between border border-[#C9A84C]/50 transition-all duration-300 hover:scale-110 size-50 lg:size-96 lg:hover:scale-105">
                                     <img src={item['image']} alt={item['name']} className="w-full h-[70%] object-cover" />
-                                    <div className="absolute bottom-1 left-1">
-                                        <p className="text-left text-white text-sm">{item['name']}</p>
-                                        <p className="text-left text-white text-sm font-serif">{item['price']}</p>
-                                        <button className="flex items-center gap-2 text-xs text-left text-[#C9A84C] hover:text-[#E8C96A] hover:transition-all hover:duration-300 hover:underline">Ir al producto
-                                            <FaArrowRightLong />
+                                    <div className="absolute top-2 right-2">
+                                        <button className="flex items-center justify-center gap-2 size-8 text-[#C9A84C] hover:transition-all hover:duration-300 hover:underline">
+                                            <FaRegHeart className="text-[#C9A84C] hover:text-red-600 transition-colors duration-300 hover:scale-110" />
+                                        </button>
+                                    </div>
+                                    <div className="px-2">
+                                        <p className="text-[#C9A84C] text-sm font-semibold font-sans my-2.5">{item['category']}</p>
+                                        <p className="text-white text-sm mt-2">{item['name']}</p>
+                                        <p className="text-sm">{item['rating']} ⭐</p>
+                                    </div>
+                                    <div className="flex justify-between items-center p-2">
+                                        <p className="text-[#C9A84C] text-md font-serif">{item['price']}</p>
+                                        <button className="flex items-center gap-2 text-xs text-left text-[#C9A84C] hover:text-[#E8C96A] hover:transition-all hover:duration-300 hover:underline">
+                                            <FaCartPlus className="size-5 mr-2 hover:scale-110 transition-colors duration-200" />
                                         </button>
                                     </div>
                                 </div>
@@ -130,11 +156,15 @@ export default function Tienda() {
 
                     {/* Paginación */}
                     <div className="flex justify-center w-full my-4 gap-2">
-                        <button className="border-2 border-[#C9A84C]/50 px-2 py-1 rounded-lg text-white hover:bg-[#C9A84C] hover:text-black transition-colors cursor-pointer">flecha izq</button>
+                        <button className="border-2 border-[#C9A84C]/50 px-2 py-1 rounded-lg text-white hover:bg-[#C9A84C] hover:text-black transition-colors cursor-pointer">
+                            <IoIosArrowBack />
+                        </button>
                         <button className="border-2 border-[#C9A84C]/50 px-2 py-1 rounded-lg text-white hover:bg-[#C9A84C] hover:text-black transition-colors cursor-pointer">1</button>
                         <button className="border-2 border-[#C9A84C]/50 px-2 py-1 rounded-lg text-white hover:bg-[#C9A84C] hover:text-black transition-colors cursor-pointer">2</button>
                         <button className="border-2 border-[#C9A84C]/50 px-2 py-1 rounded-lg text-white hover:bg-[#C9A84C] hover:text-black transition-colors cursor-pointer">3</button>
-                        <button className="border-2 border-[#C9A84C]/50 px-2 py-1 rounded-lg text-white hover:bg-[#C9A84C] hover:text-black transition-colors cursor-pointer">flecha der</button>
+                        <button className="border-2 border-[#C9A84C]/50 px-2 py-1 rounded-lg text-white hover:bg-[#C9A84C] hover:text-black transition-colors cursor-pointer">
+                            <IoIosArrowForward />
+                        </button>
                     </div>
                 </div>
             </div>

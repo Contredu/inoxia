@@ -33,8 +33,8 @@ export const Best_sellers = () => {
                                         <p className="bg-[#C9A84C] p-2 text-xs text-black font-semibold font-sans rounded-sm">{item.status}</p>
                                     )}
                                 </div>
-                                <div className="absolute top-2 right-2 p-2 flex justify-center items-center rounded-full bg-black hover:bg-red-600 transition-colors duration-300 hover:scale-110">
-                                    <button className=""><FaRegHeart className="text-[#C9A84C]" /></button>
+                                <div className="absolute top-2 right-2 p-2 flex justify-center items-center">
+                                    <button className="font-semibold text-lg"><FaRegHeart className="text-[#C9A84C] hover:text-red-600 transition-colors duration-300 hover:scale-110" /></button>
                                 </div>
                             </div>
                             <div className="text-white m-2">
