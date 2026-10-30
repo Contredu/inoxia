@@ -10,7 +10,7 @@ export const NavbarLogin = () => {
                 <div className="flex items-center justify-end pr-4 gap-6 w-full">
                     {/* <button className="flex justify-center items-center gap-2 border-2 p-2 rounded-md text-[#A09070] cursor-pointer hover:scale-110 hover:text-[#C9A84C] hover:transition-all hover:duration-300 hover:underline">Registrate<TbWritingSignFilled />
                     </button> */}
-                    <button className="flex justify-center items-center gap-2 border-2 px-2 rounded-md bg-[#C9A84C] text-black cursor-pointer hover:scale-105 hover:text-white hover:border-[#C9A84C] hover:transition-all hover:duration-500 hover:underline">Iniciar Sesión<TbLogin2 />
+                    <button className="flex justify-center items-center gap-2 px-2 rounded-md bg-[#C9A84C]/90 text-black cursor-pointer hover:scale-105 hover:border-[#C9A84C] hover:transition-all hover:duration-400 hover:underline">Iniciar Sesión<TbLogin2 />
                     </button>
                 </div>
             </nav>
