@@ -37,7 +37,7 @@ export default function newAccount() {
                         <label htmlFor="" className="my-2">Confirmar Contraseña<span className="text-[#C9A84C]">*</span></label>
                         <input type="password" placeholder="Repite tu contraseña" required className="border-2 border-[#A09070] p-2 rounded-lg w-full" />
                         <div className="flex justify-start items-center gap-2 w-full my-4">
-                            <input type="checkbox" required className="size-4" />
+                            <input type="checkbox" required className="size-4 accent-[#C9A84C]" />
                             <p className="w-full text-sm">Acepto los <a href="#" className="underline text-[#C9A84C]/70 hover:text-[#C9A84C] transition-colors">terminos y condiciones</a> y la <a href="#" className="underline text-[#C9A84C]/70 hover:text-[#C9A84C] transition-colors">política de privacidad</a> de INOXIA</p>
                         </div>
                     </form>

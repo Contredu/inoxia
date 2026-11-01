@@ -32,13 +32,13 @@ export default function AuthLogin() {
                         <label className="w-full my-2">Contraseña<span className="text-[#C9A84C]">*</span></label>
                         <input type="password" placeholder="*****************" required className="border-2 border-[#A09070] p-2 rounded-lg w-full" />
                         <div className="flex justify-start items-center gap-2 w-full">
-                            <input type="checkbox" required className="size-4" />
+                            <input type="checkbox" required className="size-4 accent-[#C9A84C]" />
                             <p className="w-1/2">Recordar mi sesión</p>
-                            <a href="#" className="w-1/2 text-end text-xs text-[#C9A84C]/70 underline hover:text-[#C9A84C] transition-colors">¿Has olvidado tu contraseña?</a>
+                            <a href="/recover-password" className="w-1/2 text-end text-xs text-[#C9A84C]/70 underline hover:text-[#C9A84C] transition-colors">¿Has olvidado tu contraseña?</a>
                         </div>
                     </div>
                     <button className="w-full flex justify-center items-center gap-2 bg-[#C9A84C]/90 text-black rounded-lg px-5 py-2 hover:bg-[#C9A84C] hover:scale-105 duration-400 cursor-pointer">Iniciar sesión <FaArrowRightLong /></button>
-                    <p className="text-white mb-40">¿No tienes una cuenta? <a href="#" className="underline text-[#C9A84C]/70 hover:text-[#C9A84C] transition-colors">Registrate</a></p>
+                    <p className="text-white mb-40">¿No tienes una cuenta? <a href="/register" className="underline text-[#C9A84C]/70 hover:text-[#C9A84C] transition-colors">Registrate</a></p>
                 </div>
                 <div className="w-1/2">
                     <img src="../header_ariana.webp" alt="" className="h-full w-full object-cover object-[70%_50%] mask-l-from-95%" />
