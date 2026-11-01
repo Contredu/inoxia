@@ -4,7 +4,7 @@ import { FaCcVisa, FaCcMastercard, FaCcDiscover, FaCcAmex } from "react-icons/fa
 
 export const Footer = () => {
 
-    const date = new Date().getFullYear();
+    // const date = new Date().getFullYear(); CONSULTAR COMO SOLUCIONAR ESTO.
 
     return (
         <>
@@ -52,7 +52,7 @@ export const Footer = () => {
                 </div>
             </footer>
             <div className="bg-black p-6 flex justify-between items-center">
-                <p className="text-xs text-[#C9A84C]/70">&copy; {date} Inoxia Jewerly. Todos los derechos reservados.</p>
+                <p className="text-xs text-[#C9A84C]/70">&copy; Inoxia Jewerly. Todos los derechos reservados.</p>
                 <div className="flex justify-end items-center gap-5">
                     <p className="size-8"><FaCcVisa className="text-[#C9A84C]/70 size-8" /></p>
                     <p className="size-8"><FaCcMastercard className="text-[#C9A84C]/70 size-8" /></p>
