@@ -21,7 +21,7 @@ export default function CheckoutSuccessPage() {
         <>
 
             {/* encabezado de la pagina de checkout         */}
-            <div className="bg-[url('/forgot.webp')] bg-cover bg-position-[50%_20%] px-20 pb-10 w-full h-72 border-b-4 border-[#C9A84C]/60 mb-10 pt-10">
+            <div className="bg-[url('/forgot.webp')] bg-cover bg-position-[50%_10%] px-20 pb-10 w-full h-72 border-b-4 border-[#C9A84C]/60 mb-10 pt-10">
                 <a href="/" className="w-full flex justify-start items-center gap-2 my-4 text-sm text-[#C9A84C] font-semibold font-sans"><FaArrowLeft /> Volver a la tienda</a>
                 <p className="text-4xl font-sant text-[#C9A84C]">¡COMPRA EXITOSA!</p>
                 <p>Gracias por tu compra. Tu pedido ha sido procesado correctamente.</p>
