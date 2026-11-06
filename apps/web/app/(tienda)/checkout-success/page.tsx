@@ -1,6 +1,10 @@
-import { FaArrowLeft, FaArrowRightLong } from "react-icons/fa6";
-import { IoCheckmarkDoneCircleSharp } from "react-icons/io5";
+import { FaArrowLeft, FaArrowRightLong, FaTruck } from "react-icons/fa6";
+import { IoCheckmarkDoneCircleSharp, IoDiamondSharp, IoShieldCheckmark } from "react-icons/io5";
+import { TfiHeadphoneAlt } from "react-icons/tfi";
 
+// FALTA:
+// -INTERACTIVIDAD CON LA BASE DE DATOS
+// -
 
 export default function CheckoutSuccessPage() {
 
@@ -71,6 +75,29 @@ export default function CheckoutSuccessPage() {
                     <p className="text-2xl font-semibold text-[#C9A84C]">€32,99</p>
                 </div>
 
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:my-4 md:py-4 border-y border-[#C9A84C]/50">
+                <div className="flex flex-col justify-center items-center border-r border-[#C9A84C]/50 my-4 p-4">
+                    <IoShieldCheckmark className="text-[#C9A84C] size-10" />
+                    <p className="text-md font-semibold">Compra segura</p>
+                    <p className="text-sm">Tus datos protegidos</p>
+                </div>
+                <div className="flex flex-col justify-center items-center border-r border-[#C9A84C]/50">
+                    <FaTruck className="text-[#C9A84C] size-10" />
+                    <p className="text-md font-semibold">Envíos en 24/48h</p>
+                    <p className="text-sm">Rápidos y seguros</p>
+                </div>
+                <div className="flex flex-col justify-center items-center border-r border-[#C9A84C]/50">
+                    <TfiHeadphoneAlt className="text-[#C9A84C] size-10" />
+                    <p className="text-md font-semibold">atención personalizada</p>
+                    <p className="text-sm">Siempre contigo</p>
+                </div>
+                <div className="flex flex-col justify-center items-center my-4">
+                    <IoDiamondSharp className="text-[#C9A84C] size-10" />
+                    <p className="text-md font-semibold">Calidad garantizada</p>
+                    <p className="text-sm">Joyas que perduran</p>
+                </div>
             </div>
         </>
     )
