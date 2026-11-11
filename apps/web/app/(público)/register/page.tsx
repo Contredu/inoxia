@@ -11,7 +11,7 @@ export default function newAccount() {
                     <button className="w-full flex justify-start items-center gap-2 my-4 text-sm text-[#C9A84C] font-semibold font-sans"><FaArrowLeft /> Volver a la tienda</button>
                     <p className="w-full flex justify-start text-xs">ÚNETE A INOXIA</p>
                     <p className="text-5xl w-full text-start text-[#C9A84C] font-sant font-semibold">CREA TU CUENTA</p>
-                    <p className="w-full mb-8">Disfruta de una experiencia más personalizada, accedea tus favoritos y sé la primera en conocer nuestras novedades.</p>
+                    <p className="w-full mb-8">Disfruta de una experiencia más personalizada, accede a tus favoritos y sé la primera en conocer nuestras novedades.</p>
 
                     <hr className="w-full border-[#C9A84C]/50 my-4" />
                     <p className="w-full flex justify-start">Crea una cuenta con tu correo electrónico:</p>
@@ -28,7 +28,7 @@ export default function newAccount() {
                     <hr className="w-full border-[#C9A84C]/50 my-4" />
 
                     <form action="/register" target="/" className="flex flex-col w-full gap-2">
-                        <label className="my-2">Nombre completo<span>*</span></label>
+                        <label className="my-2">Nombre completo<span className="text-[#C9A84C]">*</span></label>
                         <input type="text" placeholder="Tu nombre" required className="border-2 border-[#A09070] p-2 rounded-lg w-full" />
                         <label className="w-full my-2">Correo electrónico<span className="text-[#C9A84C]">*</span></label>
                         <input type="email" placeholder="tu@email.com" required className="border-2 border-[#A09070] p-2 rounded-lg w-full" />
