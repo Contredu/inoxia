@@ -4,7 +4,7 @@ import { FaCcVisa, FaCcMastercard, FaCcDiscover, FaCcAmex } from "react-icons/fa
 
 export const Footer = () => {
 
-    // const date = new Date().getFullYear(); CONSULTAR COMO SOLUCIONAR ESTO.
+    // const date = new Date().getFullYear();
 
     return (
         <>

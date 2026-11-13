@@ -1,6 +1,9 @@
-import { FaUserLarge,FaPencil} from "react-icons/fa6"
+'use client'
+
+import { FaUserLarge, FaPencil } from "react-icons/fa6"
 import { IoSave } from "react-icons/io5";
 import { FaUser } from "react-icons/fa";
+import { useState } from "react";
 
 export default function AccountPage() {
     const dataUser = {
@@ -38,6 +41,8 @@ export default function AccountPage() {
         phone: 671717731
     }
 
+    const [click, setClick] = useState(false);
+
     return (
 
         <>
@@ -57,7 +62,7 @@ export default function AccountPage() {
                                     <p className="text-sm">Actualiza tus datos personales.</p>
                                 </div>
                                 <div className="flex justify-end items-center w-full mr-4">
-                                    <button className="flex items-center gap-2 px-2 rounded-lg bg-black border-2 border-[#C9A84C]/50 text-[#C9A84C] hover:bg-[#C9A84C] hover:text-black"><FaPencil /> Editar Perfil</button>
+                                    <button className="flex items-center gap-2 px-2 rounded-lg bg-black border-2 border-[#C9A84C]/50 text-[#C9A84C] hover:bg-[#C9A84C] hover:text-black hover:scale-105 all-transition duration-300"><FaPencil /> Editar Perfil</button>
                                 </div>
                             </div>
                             <hr className="my-4 border-[#C9A84C]" />
@@ -78,21 +83,23 @@ export default function AccountPage() {
                     </div>
 
                     {/* formulario de edición de informacion personal */}
-                    <div className="w-full border-2 border-[#C9A84C]/70 rounded-lg p-4 mt-4">
-                        <form action="">
-                            <form action="" className="flex flex-col">
-                                <label>Nombre Completo<span className="text-[#C9A84C]"> *</span></label>
-                                <input type="text" placeholder="Nombre Completo" required className="border-2 border-[#C9A84C] p-2 rounded-lg my-2" />
-                                <label>Correo electrónico<span className="text-[#C9A84C]"> *</span></label>
-                                <input type="email" placeholder="Correo electrónico" required className="border-2 border-[#C9A84C] p-2 rounded-lg my-2" />
-                                <label htmlFor="telefono">Teléfono<span className="text-[#C9A84C]"> *</span></label>
-                                <input type="tel" placeholder="Teléfono" required className="border-2 border-[#C9A84C] p-2 rounded-lg my-2" />
+                    {click === true && (
+                        <div className="w-full border-2 border-[#C9A84C]/70 rounded-lg p-4 mt-4">
+                            <form action="">
+                                <form action="" className="flex flex-col">
+                                    <label>Nombre Completo<span className="text-[#C9A84C]"> *</span></label>
+                                    <input type="text" placeholder="Nombre Completo" required className="border-2 border-[#C9A84C] p-2 rounded-lg my-2" />
+                                    <label>Correo electrónico<span className="text-[#C9A84C]"> *</span></label>
+                                    <input type="email" placeholder="Correo electrónico" required className="border-2 border-[#C9A84C] p-2 rounded-lg my-2" />
+                                    <label htmlFor="telefono">Teléfono<span className="text-[#C9A84C]"> *</span></label>
+                                    <input type="tel" placeholder="Teléfono" required className="border-2 border-[#C9A84C] p-2 rounded-lg my-2" />
+                                </form>
+                                <div className="flex justify-end items-center w-full mt-4 py-2">
+                                    <button type="submit" className="flex items-center gap-2 px-2 rounded-lg bg-black border-2 border-[#C9A84C]/50 text-[#C9A84C] hover:bg-[#C9A84C] hover:text-black hover:scale-105 all-transition duration-300"><IoSave />Guardar cambios</button>
+                                </div>
                             </form>
-                            <div className="flex justify-end items-center w-full mt-4 py-2">
-                                <button type="submit" className="flex items-center gap-2 px-2 rounded-lg bg-black border-2 border-[#C9A84C]/50 text-[#C9A84C] hover:bg-[#C9A84C] hover:text-black"><IoSave />Guardar cambios</button>
-                            </div>
-                        </form>
-                    </div>
+                        </div>
+                    )}
                 </div>
             </div>
         </>

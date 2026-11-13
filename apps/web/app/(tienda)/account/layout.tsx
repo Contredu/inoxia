@@ -1,8 +1,11 @@
+'use client'
+
 import React from 'react'
 
 import { FaArrowLeft, FaUserLarge, FaLocationDot, FaWallet, FaHeart } from "react-icons/fa6"
-import { IoBag, IoLogOut } from "react-icons/io5";
+import { IoBag, IoLogOut, IoSettings } from "react-icons/io5";
 import { FaUser } from "react-icons/fa";
+import { MdOutlineSecurity } from "react-icons/md";
 
 export default function AccountLayout({ children }: { children: React.ReactNode }) {
     const dataUser = {
@@ -69,16 +72,16 @@ export default function AccountLayout({ children }: { children: React.ReactNode 
                             <a href='/account'><li className="flex items-center gap-4 py-2 hover:bg-[#C9A84C]/70 pl-6 hover:text-black"><FaUser />Mi perfil</li></a>
                             <a href='/account/address'><li className="flex items-center gap-4 py-2 hover:bg-[#C9A84C]/70 pl-6 hover:text-black"><FaLocationDot />Direcciones</li></a>
                             <a href='/account/payments'><li className="flex items-center gap-4 py-2 hover:bg-[#C9A84C]/70 pl-6 hover:text-black"><FaWallet /> Métodos de pago</li></a>
-                            <a href='/account/security'><li className="flex items-center gap-4 py-2 hover:bg-[#C9A84C]/70 pl-6 hover:text-black">Seguridad</li></a>
+                            <a href='/account/security'><li className="flex items-center gap-4 py-2 hover:bg-[#C9A84C]/70 pl-6 hover:text-black"><MdOutlineSecurity />Seguridad</li></a>
                             <a href='/account/orders'><li className="flex items-center gap-4 py-2 hover:bg-[#C9A84C]/70 pl-6 hover:text-black"><IoBag /> Mis pedidos</li></a>
                             <a href='/account/wishlist'><li className="flex items-center gap-4 py-2 hover:bg-[#C9A84C]/70 pl-6 hover:text-black"><FaHeart />Favoritos</li></a>
-                            <a href='/account/preferences'><li className="flex items-center gap-4 py-2 hover:bg-[#C9A84C]/70 pl-6 hover:text-black">Otros datos</li></a>
+                            <a href='/account/preferences'><li className="flex items-center gap-4 py-2 hover:bg-[#C9A84C]/70 pl-6 hover:text-black"><IoSettings />Otros datos</li></a>
                         </ul>
 
                     </div>
 
                     {/* boton de cerrar sesión */}
-                    <div className="m-4 p-2 bg-[#C9A84C]/70 hover:text-black hover:bg-[#C9A84C]">
+                    <div className="m-4 p-2 rounded-lg bg-[#C9A84C]/70 hover:text-black hover:bg-[#C9A84C] hover:scale-105 all-transition duration-300">
                         <button className="flex w-full items-center justify-center gap-2" type="submit">Cerrar sesión<IoLogOut /></button>
 
                     </div>
