@@ -71,7 +71,7 @@ export default function AddressPage() {
                             <p className="font-light">{dataUser.address[0].poblacion}, {dataUser.address[0].Localidad} {dataUser.address[0].codigo_postal}</p>
                         </div>
                         {addressDefault && (
-                            <div className="flex justify-center items-center my-8 p-4 rounded-lg bg-[#C9A84C] border-2 border-black">
+                            <div className="flex justify-center items-center h-[5%] p-2 rounded-lg bg-[#C9A84C] border-2 border-black">
                                 <p className="font-bold text-black">Predeterminada</p>
                             </div>
                         )}
@@ -86,7 +86,7 @@ export default function AddressPage() {
                 ) : (
                     dataUser.address.map((a) => (
                         <div key={a.id} className="flex my-4 p-6 w-full border-2 border-[#C9A84C]/70 rounded-lg">
-                            <IoHome className="text-indigo-800 size-25" />
+                            <IoHome className="text-blue-950 size-25" />
                             <div className="flex flex-col w-full gap-3 mx-4 pl-4">
                                 <p className="font-semibold text-xl">Dirección {a.id}</p>
                                 <p className="font-light">{a.calle} {a.portal} , Piso: {a.piso} Puerta: {a.puerta}</p>
