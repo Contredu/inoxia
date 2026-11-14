@@ -1,5 +1,3 @@
-'use client'
-
 import React from 'react'
 
 import { FaArrowLeft, FaUserLarge, FaLocationDot, FaWallet, FaHeart } from "react-icons/fa6"

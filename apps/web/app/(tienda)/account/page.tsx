@@ -47,7 +47,6 @@ export default function AccountPage() {
 
         <>
             <div className="flex">
-
                 {/* Informacion seleccionada del usuario en el panel */}
                 <div className="w-full m-2">
 
@@ -114,16 +113,5 @@ export default function AccountPage() {
 // • Correo electrónico (Email) (Obligatorio; requiere validación y, a menudo, confirmación por seguridad si se modifica)
 // • Teléfono de contacto / Móvil (Útil para avisos de entrega)
 
-// 2. Datos de Acceso y Seguridad
 
-// • Contraseña actual (Necesaria por seguridad para autorizar cambios críticos)
-// • Nueva contraseña (Opcional)
-// • Confirmar nueva contraseña
 
-// 4. Preferencias y Configuración Adicional
-
-// • Fecha de nacimiento (Opcional; útil para promociones o descuentos de cumpleaños)
-// • Género (Opcional)
-// • Idioma / Moneda preferida
-// • Suscripción a la Newsletter / Marketing (Casilla de verificación / Checkbox)
-// • Preferencias de notificaciones (Alertas por SMS, WhatsApp o correo sobre pedidos)
