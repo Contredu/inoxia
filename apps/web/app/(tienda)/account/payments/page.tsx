@@ -2,7 +2,7 @@
 
 import { FaWallet, FaPlus, FaPencil } from "react-icons/fa6"
 import { MdOutlinePayment } from "react-icons/md";
-import { IoHome, IoRemoveCircle, IoSave } from "react-icons/io5";
+import { IoRemoveCircle, IoSave } from "react-icons/io5";
 import { MdCancel } from "react-icons/md";
 import { useState } from "react";
 
