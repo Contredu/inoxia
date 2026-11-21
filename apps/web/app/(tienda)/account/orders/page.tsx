@@ -148,7 +148,7 @@ export default function OrdersPage() {
                                     : "Estado: Pendiente de entrega"}
                             </p>
                             <div className="p-2 justify-around items-center flex flex-wrap gap-4">
-                                <img src={order.img_product} alt={order.nombre_producto} className="size-30 object-cover rounded-lg duration-500" />
+                                <img src={order.img_product} alt={order.nombre_producto} className="size-30 object-cover rounded-lg hover:zoom-250 duration-500" />
                                 <a href={order.link_product} className="hover:underline hover:text-[#C9A84C]">{order.nombre_producto}</a>
                                 <button type="button" className="flex items-center gap-2 px-2 my-10 rounded-lg bg-black border-2 border-[#C9A84C]/50 text-[#C9A84C] hover:bg-[#C9A84C] hover:text-black hover:scale-105 transition-all duration-300">
                                     Dejar una reseña
