@@ -3,6 +3,7 @@
 import { FaUserLarge, FaPencil } from "react-icons/fa6"
 import { IoSave } from "react-icons/io5";
 import { FaUser } from "react-icons/fa";
+import { MdCancel } from "react-icons/md";
 import { useState } from "react";
 
 export default function AccountPage() {
@@ -65,9 +66,12 @@ export default function AccountPage() {
                                     <p className="text-sm">Actualiza tus datos personales.</p>
                                 </div>
                                 <div className="flex justify-end items-center w-full mr-4">
-                                    <button 
-                                    type="submit" 
-                                    className="flex items-center gap-2 px-2 rounded-lg bg-black border-2 border-[#C9A84C]/50 text-[#C9A84C] hover:bg-[#C9A84C] hover:text-black hover:scale-105 all-transition duration-300"><FaPencil /> Editar Perfil</button>
+                                    <button
+                                        onClick={() => setClick(true)}
+                                        type="submit"
+                                        className="flex items-center gap-2 px-2 rounded-lg bg-black border-2 border-[#C9A84C]/50 text-[#C9A84C] hover:bg-[#C9A84C] hover:text-black hover:scale-105 all-transition duration-300">
+                                        <FaPencil /> Editar Perfil
+                                    </button>
                                 </div>
                             </div>
                             <hr className="my-4 border-[#C9A84C]" />
@@ -103,8 +107,18 @@ export default function AccountPage() {
                                     <label htmlFor="telefono">Teléfono<span className="text-[#C9A84C]"> *</span></label>
                                     <input type="tel" placeholder="Teléfono" required className="border-2 border-[#C9A84C] p-2 rounded-lg my-2" />
                                 </form>
-                                <div className="flex justify-end items-center w-full mt-4 py-2">
-                                    <button type="submit" className="flex items-center gap-2 px-2 rounded-lg bg-black border-2 border-[#C9A84C]/50 text-[#C9A84C] hover:bg-[#C9A84C] hover:text-black hover:scale-105 all-transition duration-300"><IoSave />Guardar cambios</button>
+                                <div className="flex justify-end items-center w-full mt-4 py-2 gap-2">
+                                    <button
+                                        type="submit"
+                                        className="flex items-center gap-2 px-2 rounded-lg bg-black border-2 border-[#C9A84C]/50 text-[#C9A84C] hover:bg-[#C9A84C] hover:text-black hover:scale-105 all-transition duration-300">
+                                        <IoSave />Guardar cambios
+                                    </button>
+                                    <button
+                                        onClick={() => setClick(false)}
+                                        type="submit"
+                                        className="flex items-center gap-2 px-2 rounded-lg bg-black border-2 border-[#C9A84C]/50 text-[#C9A84C] hover:bg-[#C9A84C] hover:text-black hover:scale-105 all-transition duration-300">
+                                        <MdCancel />Cancelar
+                                    </button>
                                 </div>
                             </form>
                         </div>
