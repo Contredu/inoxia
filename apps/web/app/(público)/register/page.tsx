@@ -2,6 +2,9 @@ import { FaApple } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import { FaArrowLeft, FaArrowRightLong } from "react-icons/fa6";
 
+// FALTA:
+// -TODA LA LOGICA Y LA INTERACTIVIDAD DE LOS BOTONES
+// -CONEXION CON LA BASE DE DATOS
 
 export default function newAccount() {
     return (
@@ -25,7 +28,9 @@ export default function newAccount() {
                         </button>
                     </div>
 
-                    <hr className="w-full border-[#C9A84C]/50 my-4" />
+                    <fieldset className="border-t w-full text-center border-[#C9A84C]/50 my-4">
+                        <legend className="px-2">Ó</legend>
+                    </fieldset>
 
                     <form action="/register" target="/" className="flex flex-col w-full gap-2">
                         <label className="my-2">Nombre completo<span className="text-[#C9A84C]">*</span></label>
@@ -37,8 +42,12 @@ export default function newAccount() {
                         <label htmlFor="" className="my-2">Confirmar Contraseña<span className="text-[#C9A84C]">*</span></label>
                         <input type="password" placeholder="Repite tu contraseña" required className="border-2 border-[#A09070] p-2 rounded-lg w-full" />
                         <div className="flex justify-start items-center gap-2 w-full my-4">
-                            <input type="checkbox" required className="size-4 accent-[#C9A84C]" />
-                            <p className="w-full text-sm">Acepto los <a href="#" className="underline text-[#C9A84C]/70 hover:text-[#C9A84C] transition-colors">terminos y condiciones</a> y la <a href="#" className="underline text-[#C9A84C]/70 hover:text-[#C9A84C] transition-colors">política de privacidad</a> de INOXIA</p>
+                            <input id="politics" name="politics" type="checkbox" required className="size-4 accent-[#C9A84C]" />
+                            <label
+                                htmlFor="politics"
+                                className="w-full text-sm">
+                                Acepto los <a href="#" className="underline text-[#C9A84C]/70 hover:text-[#C9A84C] transition-colors">terminos y condiciones</a> y la <a href="#" className="underline text-[#C9A84C]/70 hover:text-[#C9A84C] transition-colors">política de privacidad</a> de INOXIA
+                            </label>
                         </div>
                     </form>
                     <button type="submit" className="w-full flex justify-center items-center gap-2 bg-[#C9A84C]/90 text-black rounded-lg px-5 py-2 hover:bg-[#C9A84C] hover:scale-105 duration-400 cursor-pointer">Registrarse<FaArrowRightLong /></button>

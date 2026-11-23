@@ -38,7 +38,11 @@ export default function AccountPage() {
                 default: false,
             }
         ],
-        phone: 671717731
+        phone: 671717731,
+        genero: "Femenino",
+        nacimiento: "22/07/1992",
+        idioma: "Español",
+        moneda: "€ EUR"
     }
 
     const [click, setClick] = useState(false);
@@ -61,7 +65,9 @@ export default function AccountPage() {
                                     <p className="text-sm">Actualiza tus datos personales.</p>
                                 </div>
                                 <div className="flex justify-end items-center w-full mr-4">
-                                    <button className="flex items-center gap-2 px-2 rounded-lg bg-black border-2 border-[#C9A84C]/50 text-[#C9A84C] hover:bg-[#C9A84C] hover:text-black hover:scale-105 all-transition duration-300"><FaPencil /> Editar Perfil</button>
+                                    <button 
+                                    type="submit" 
+                                    className="flex items-center gap-2 px-2 rounded-lg bg-black border-2 border-[#C9A84C]/50 text-[#C9A84C] hover:bg-[#C9A84C] hover:text-black hover:scale-105 all-transition duration-300"><FaPencil /> Editar Perfil</button>
                                 </div>
                             </div>
                             <hr className="my-4 border-[#C9A84C]" />
@@ -76,6 +82,10 @@ export default function AccountPage() {
                                     <p className="font-semibold"><span className="font-light">Nombre Completo:</span> {dataUser.name}</p>
                                     <p className="font-semibold"><span className="font-light">Correo Electrónico: </span>{dataUser.email}</p>
                                     <p className="font-semibold"><span className="font-light">Teléfono: </span>{dataUser.phone}</p>
+                                    <p className="font-semibold"><span className="font-light">Género: </span>{dataUser.genero}</p>
+                                    <p className="font-semibold"><span className="font-light">Fecha de nacimiento: </span>{dataUser.nacimiento}</p>
+                                    <p className="font-semibold"><span className="font-light">Idioma: </span>{dataUser.idioma}</p>
+                                    <p className="font-semibold"><span className="font-light">Moneda: </span>{dataUser.moneda}</p>
                                 </div>
                             </div>
                         </div>

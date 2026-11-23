@@ -4,6 +4,10 @@ import { FaShare, FaTruck, FaPlus } from "react-icons/fa6";
 import { IoRemoveCircle } from "react-icons/io5";
 import { useState } from "react"
 
+// FALTA:
+// -CONEXION CON LA BASE DE DATOS
+// -INTERACTIVIDAD DE BOTONES, COMPARTIR PRODUCTO, AÑADIR CARRITO, O ELIMINAR DE LA LISTA.
+
 export default function WishlistPage() {
 
     const itemData = [
